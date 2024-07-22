@@ -6,6 +6,7 @@ import Login from '@/views/login.vue'
 
 <template setup>
     <Login></Login>
+    <router-view></router-view>
 </template>
 
 <style scoped>
