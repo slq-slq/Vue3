@@ -17,4 +17,13 @@ export const constantRoutes = [
         hidden:true,
     }
 },
+{
+    path: '/register',
+    component: () => import('@/views/register.vue'),
+    name: 'register',
+    meta:{
+        title:'注册',
+        hidden:true,
+    }
+},
 ]
