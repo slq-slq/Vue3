@@ -57,6 +57,7 @@ let registerForm = ref({
     code: "",
     uuid: ""
 })
+
 let loading = ref(false)
 let captchaOnOff = ref(true)
 
@@ -65,10 +66,12 @@ const handleRegister = () => {
 }
 
 const equalToPassword = function(rule, value, callback) {
-    if (this.registerForm.password !== value) {
-        callback(new Error("两次输入的密码不一致"));
+    if (registerForm.value.password !== value) {
+        console.log("code error");
+        return callback(new Error("两次输入的密码不一致"));
     } else {
-        callback();
+        console.log("code error");
+        return callback();
     }
 };
 let registerRules = {
@@ -81,7 +84,7 @@ let registerRules = {
         { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' }
     ],
     confirmPassword: [
-        { required: true, trigger: "blur", message: "请再次输入您的密码" },
+        //{ required: true, trigger: "blur", message: "请再次输入您的密码" },
         { required: true, validator: equalToPassword, trigger: "blur" }
     ]
 }
