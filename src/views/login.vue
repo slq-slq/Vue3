@@ -4,7 +4,7 @@
             <h3 class="title">湖南科技大学 数据中台</h3>
             <el-form-item prop="username">
                 <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
-                    <template v-slot:prefix>
+                    <template #prefix>
                         <User style="width: 1em; height: 1em; margin-right: 8px" />
                     </template>
                 </el-input>
@@ -12,7 +12,7 @@
             <el-form-item prop="password">
                 <el-input v-model="loginForm.password" type="password" auto-complete="off" placeholder="密码"
                     @keyup.enter="handleLogin">
-                    <template v-slot:prefix>
+                    <template #prefix>
                         <Lock style="width: 1em; height: 1em; margin-right: 8px" />
                     </template>
                 </el-input>
