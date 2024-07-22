@@ -6,6 +6,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import 'virtual:svg-icons-register'
 import globalComponent from './components/index';
 import'@/styles/index.scss';
+import router from './router'
 
 const app = createApp(App)
 
@@ -18,5 +19,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 app.use(globalComponent);
-
+app.use(router)
 app.mount('#app')

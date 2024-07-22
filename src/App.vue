@@ -6,8 +6,8 @@ import Register from './views/register.vue';
 </script>
 
 <template setup>
-    <!-- <Login></Login> -->
-     <Register></Register>
+
+    <router-view></router-view>
 </template>
 
 <style scoped>
