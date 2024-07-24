@@ -9,11 +9,20 @@ export const constantRoutes = [
       }
   },
   {
-    path: '/index',
+    path: '/',
     component: () => import('@/Layout/index.vue'),
     name: 'index',
     meta:{
         title:'首页',
+        hidden:true,
+    }
+},
+{
+    path: '/register',
+    component: () => import('@/views/register.vue'),
+    name: 'register',
+    meta:{
+        title:'注册',
         hidden:true,
     }
 },
