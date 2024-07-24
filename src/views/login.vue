@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <el-form class="login-form">
+        <el-form class="login-form" :model="loginForm" :rules="loginRules" ref="loginForms">
             <h3 class="title">湖南科技大学 数据中台</h3>
             <el-form-item prop="username">
                 <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
@@ -18,18 +18,16 @@
                 </el-input>
             </el-form-item>
             <el-checkbox v-model:value="loginForm.rememberMe" style="margin: 0px 0px 25px 0px">记住密码</el-checkbox>
-            
+
             <el-form-item style="width: 100%">
-                <el-button :loading="loading" size="medium" type="primary" style="width: 100%"
-                    @click.prevent="handleLogin">
-                    <span v-if="!loading">登 录</span>
-                    <span v-else>登 录 中...</span>
+                <el-button :loading="loading" type="primary" style="width: 100%" @click="handleLogin">
+                    登录
                 </el-button>
                 <div style="float: right" v-if="register">
                     <router-link class="link-type" :to="'/register'">立即注册</router-link>
                 </div>
             </el-form-item>
-            
+
         </el-form>
         <!--  底部  -->
         <div class="el-login-footer">
@@ -41,6 +39,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import { reqLogin } from '../api/user';
+import { ElNotification } from 'element-plus';
+import useUserStore from '../store/modules/user';
+import { useRouter, useRoute } from "vue-router";
+
+let $router = useRouter()
+let $route = useRoute()
+
 let codeUrl = ref("")
 let loginForm = ref({
     username: "admin",
@@ -49,25 +55,49 @@ let loginForm = ref({
     code: "",
     uuid: ""
 })
-let loginRules = {
-    username: [
-        { required: true, trigger: "blur", message: "请输入您的账号" }
-    ],
-    password: [
-        { required: true, trigger: "blur", message: "请输入您的密码" }
-    ],
-    code: [{ required: true, trigger: "change", message: "请输入验证码" }]
-}
+let loginForms = ref()
 let loading = ref(false)
 let captchaOnOff = ref(true)
-let register= ref(true)
+let register = ref(true)
+let userStore = useUserStore()
 
+//校验表单
+let loginRules = {
+    username: [
+        { required: true, trigger: "blur", message: "请输入您的账号" },
+        { min: 2, max: 20, message: '用户账号长度必须介于 2 和 20 之间', trigger: 'blur' }
+    ],
+    password: [
+        { required: true, trigger: "blur", message: "请输入您的密码" },
+        { min: 5, max: 20, message: '用户密码长度必须介于 5 和 20 之间', trigger: 'blur' }
+    ]
+}
 
+//登录
+const handleLogin = () => {
+    loginForms.value.validate(async(valid) => {
+        if (!valid) return;
+        loading.value = true
+        try {
+            await userStore.userLogin(loginForm.value)
+            loading.value = false
 
-const handleLogin = ()=>{
-    setTimeout(()=>{
-        console.log("uckgg");
-    },3000)
+            $router.push({path:'/'})
+
+            ElNotification({
+                type: 'success',
+                message: "欢迎回来",
+                title: `Hi! 你好`
+            })
+        } catch(error) {
+            console.log(error);
+            loading.value = false
+            ElNotification({
+                type: 'error',
+                message: error.message
+            })
+        }
+    })
 }
 </script>
 
@@ -85,13 +115,14 @@ const handleLogin = ()=>{
     margin: 0px auto 30px auto;
     text-align: center;
     font-size: 20px;
-    font-weight:bold
+    font-weight: bold
 }
 
 .login-form {
     border-radius: 6px;
     width: 400px;
     padding: 25px 25px 5px 25px;
+    background-color: #fff;
 
     .el-input {
         height: 38px;

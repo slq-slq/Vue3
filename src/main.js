@@ -7,6 +7,7 @@ import 'virtual:svg-icons-register'
 import globalComponent from './components/index';
 import'@/styles/index.scss';
 import router from './router'
+import pinia from './store';
 
 const app = createApp(App)
 
@@ -20,4 +21,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 app.use(globalComponent);
 app.use(router)
+app.use(pinia)
 app.mount('#app')
