@@ -154,4 +154,7 @@ export default defineComponent({
   margin-top: 10%;
   font-size: 120%;
 }
+.el-menu-vertical-demo{
+  height: 100vh;
+}
 </style>
