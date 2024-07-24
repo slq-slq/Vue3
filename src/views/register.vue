@@ -57,6 +57,7 @@ let registerForm = ref({
     code: "",
     uuid: ""
 })
+
 let loading = ref(false)
 let captchaOnOff = ref(true)
 
@@ -65,10 +66,12 @@ const handleRegister = () => {
 }
 
 const equalToPassword = function(rule, value, callback) {
-    if (this.registerForm.password !== value) {
-        callback(new Error("两次输入的密码不一致"));
+    if (registerForm.value.password !== value) {
+        console.log("code error");
+        return callback(new Error("两次输入的密码不一致"));
     } else {
-        callback();
+        console.log("code error");
+        return callback();
     }
 };
 let registerRules = {
