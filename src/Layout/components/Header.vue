@@ -34,6 +34,7 @@
     display: flex;
     justify-content: space-between; /* 两端对齐 */
     align-items: center; /* 垂直居中对齐 */
+    padding-left: 10px;
 }
 
 .p p {
@@ -47,6 +48,7 @@
 }
 .bread {
     margin-bottom: 5px;
+    padding-left: 10px;
 }
 .user {
     display: flex;
