@@ -7,7 +7,7 @@
             </p>
             <div class="user">
                 <img style="height: 40px;width: 40px;border-radius:50%;" src="../../assets/images/login-background.jpg" alt="">
-                <span>用户名</span>
+                <span>{{ userStore }}</span>
             </div>
         </div>
         <div class="bread">
@@ -20,6 +20,15 @@
         </div>
     </div>
 </template>
+<script setup>
+import { ref } from 'vue';
+// import { useUserStore } from '../../store/modules/user'
+// import { storeToRefs } from 'pinia'
+const userStore = ref('admin')
+// const userStore = useUserStore()
+// const { username } = storeToRefs(userStore) // 使用 storeToRefs 来解构 store 中的响应式数据
+// console.log(userStore);
+</script>
 <style scoped>
 .header {
     display: flex;

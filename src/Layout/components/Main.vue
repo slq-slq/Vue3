@@ -5,7 +5,7 @@
 </template>
 <style scoped>
 *{
-    padding-top: 30px;
+    padding-top: 60px;
     padding-left: 10px;
 }
 </style>

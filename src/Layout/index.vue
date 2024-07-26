@@ -5,11 +5,12 @@
         <Aside></Aside>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header style="margin-bottom: 30px;">
             <Header></Header>
         </el-header>
         <el-main>
             <Main></Main>
+            <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
