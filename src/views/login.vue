@@ -11,7 +11,7 @@
             </el-form-item>
             <el-form-item prop="password">
                 <el-input v-model="loginForm.password" type="password" auto-complete="off" placeholder="密码"
-                    @keyup.enter="handleLogin">
+                    show-password @keyup.enter="handleLogin">
                     <template #prefix>
                         <Lock style="width: 1em; height: 1em; margin-right: 8px" />
                     </template>
@@ -75,21 +75,21 @@ let loginRules = {
 
 //登录
 const handleLogin = () => {
-    loginForms.value.validate(async(valid) => {
+    loginForms.value.validate(async (valid) => {
         if (!valid) return;
         loading.value = true
         try {
             await userStore.userLogin(loginForm.value)
             loading.value = false
 
-            $router.push({path:'/'})
+            $router.push({ path: '/' })
 
             ElNotification({
                 type: 'success',
                 message: "欢迎回来",
                 title: `Hi! 你好`
             })
-        } catch(error) {
+        } catch (error) {
             console.log(error);
             loading.value = false
             ElNotification({
