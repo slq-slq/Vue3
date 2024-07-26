@@ -7,7 +7,7 @@ let request = axios.create({
 })
 //请求拦截器
 request.interceptors.request.use(config => {
-  console.log(config);
+  //console.log(config);
     return config;
 });
 //响应拦截器
