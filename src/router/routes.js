@@ -1,3 +1,5 @@
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs';
+
 export const constantRoutes = [
     {
         path: '/login',
@@ -25,6 +27,17 @@ export const constantRoutes = [
             title: '首页',
             hidden: true,
         },
+        children:[
+            {
+                path:'/hello',
+                component: ()=>import('@/components/HelloWorld.vue'),
+                children: [
+                    {
+                        path:'/'
+                    }
+                ]
+            }
+        ]
 
     },
 ]
