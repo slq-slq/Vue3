@@ -1,6 +1,6 @@
 <template>
     <div>
-        我是调度模板
+        我是日志管理
     </div>
 </template>
 
