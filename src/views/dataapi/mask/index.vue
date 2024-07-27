@@ -1,6 +1,6 @@
 <template>
     <div>
-        我是数据脱敏
+        我是数据脱敏1
     </div>
 </template>
 

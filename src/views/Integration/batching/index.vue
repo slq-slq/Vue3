@@ -1,6 +1,6 @@
 <template>
     <div>
-        我是任务批量构建
+        我是任务批量构建1
     </div>
 </template>
 
