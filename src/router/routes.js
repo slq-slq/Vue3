@@ -29,15 +29,9 @@ export const constantRoutes = [
         },
         children:[
             {
-                path:'/hello',
-                component: ()=>import('@/components/HelloWorld.vue'),
-                children: [
-                    {
-                        path:'/'
-                    }
-                ]
-            }
+                path: '/user',
+                component:()=>import('@/views/system/user/index.vue')
+            }  
         ]
-
     },
 ]
