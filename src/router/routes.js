@@ -61,23 +61,22 @@ export const constantRoutes = [
                 }
             },
             {
-                path:'/system/operlog',
-                component:() => import('@/views/System/Operlog/index.vue'),
-                name:'Operlog',
+                path:'/system/operlog/login',
+                component:() => import('@/views/System/Operlog/login.vue'),
+                name:'Operlogin',
                 meta:{
-                    title:'日志管理',
+                    title:'登录管理',
                 },
-                children:[
-                    {
-                        path:'/login',
-                        component:() => import('@/views/System/Operlog/login.vue'),
-                    },
-                    {
-                        path:'/operator',
-                        component:() => import('@/views/System/Operlog/operator.vue'),
-                    }
-                ]
+            },
+            {
+                path:'/system/operlog/operator',
+                component:() => import('@/views/System/Operlog/operator.vue'),
+                name:'Operator',
+                meta:{
+                    title:'操作管理',
+                },
             }
+
         ]
     },
     {
@@ -166,7 +165,7 @@ export const constantRoutes = [
                 }
             },
             {
-                path:'/integration/executioning',
+                path:'/integration/executionlog',
                 component:() => import('@/views/Integration/executionlog/index.vue'),
                 name:'executioning',
                 meta:{

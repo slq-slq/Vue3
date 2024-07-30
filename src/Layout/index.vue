@@ -10,7 +10,6 @@
         </el-header>
         <el-main>
             <Main></Main>
-            
         </el-main>
       </el-container>
     </el-container>
@@ -26,4 +25,5 @@ import Main from './components/Main.vue';
     padding: 0;
     margin: 0;
 }
+
 </style>

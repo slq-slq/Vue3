@@ -1,15 +1,17 @@
 <template>
   <el-row class="tac">
     <el-col :span="24">
-      <h5 class="mb-2"><el-icon><Menu /></el-icon>数据中台</h5>
       <el-menu
         :default-active="defaultActive"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
+        router
       >
-        <el-menu-item>
-          <el-icon><HomeFilled /></el-icon>首页
+      <h5 class="mb-2"><el-icon><Menu /></el-icon>数据中台</h5>
+        <el-menu-item index="/">
+          <el-icon><HomeFilled /></el-icon>
+          <span>首页</span>
         </el-menu-item>
         <el-sub-menu
           v-for="menu in menus"
@@ -54,6 +56,7 @@ import {
   Coin,
   Document,
   Headset,
+  HomeFilled,
   Menu as IconMenu,
   Location,
   ScaleToOriginal,
@@ -65,64 +68,72 @@ export default defineComponent({
   setup() {
     const defaultActive = ref('2')
     const menus = ref([
+      // {
+      //   index:'1',
+      //   title:'首页',
+      //   icon: HomeFilled,
+      //   items: [
+      //     { index: '/', title:'首页' },
+      //   ]
+      // },
       {
-        index: '1',
+        index: '2',
         title: '系统管理',
         icon: SetUp,
         items: [
-          { index: '1-1', title: '用户管理' },
-          { index: '1-2', title: '角色管理' },
-          { index: '1-3', title: '菜单管理' },
+          { index: '/system/user', title: '用户管理' },
+          { index: '/system/role', title: '角色管理' },
+          { index: '/system/menu', title: '菜单管理' },
         ],
         submenus: [
           {
-            index: '1-4',
+            index: '2-4',
             title: '日志管理',
             items: [
-              { index: '1-4-1', title: '操作日志' },
-              { index: '1-4-2', title: '登录日志' },
+              { index: '/system/operlog/operator', title: '操作日志' },
+              { index: '/system/operlog/login', title: '登录日志' },
             ],
           },
         ],
       },
       {
-        index: '2',
+        index: '3',
         title: '系统监控',
         icon: Headset,
         items: [
-          { index: '2-1', title: '定时任务' },
-          { index: '2-2', title: '数据监控' },
-        ],
-      },
-      {
-        index: '3',
-        title: '数据API',
-        icon: ScaleToOriginal,
-        items: [
-          { index: '3-1', title: '数据服务' },
-          { index: '3-2', title: '数据脱敏' },
-          { index: '3-3', title: 'API日志' },
+          { index: '/monitor/time', title: '定时任务' },
+          { index: '/monitor/data', title: '数据监控' },
         ],
       },
       {
         index: '4',
-        title: '数据集成',
-        icon: Box,
+        title: '数据API',
+        icon: ScaleToOriginal,
         items: [
-          { index: '4-1', title: '调度模板' },
-          { index: '4-2', title: '任务批量构建' },
-          { index: '4-3', title: '任务构建' },
-          { index: '4-4', title: '实例管理' },
-          { index: '4-5', title: '执行日志' },
-          { index: '4-6', title: '资源监控' },
+          { index: '/dataapi/server', title: '数据服务' },
+          { index: '/dataapi/mask', title: '数据脱敏' },
+          { index: '/dataapi/apilog', title: 'API日志' },
         ],
       },
       {
         index: '5',
+        title: '数据集成',
+        icon: Box,
+        items: [
+          { index: '/integration/templete', title: '调度模板' },
+          { index: '/integration/batching', title: '任务批量构建' },
+          { index: '/integration/creation', title: '任务构建' },
+          { index: '/integration/management', title: '实例管理' },
+          { index: '/integration/executionlog', title: '执行日志' },
+          { index: '/integration/monitor', title: '资源监控' },
+        ],
+      },
+      {
+        index: '6',
         title: '数据资产',
         icon: Coin,
         items: [
-          { index: '5-1', title: '数据源' },
+          { index: '/dataassets/datasource', title: '数据源' },
         ],
       },
     ])
@@ -151,7 +162,7 @@ export default defineComponent({
   text-align: center;
   justify-content: center;
   display: flex;
-  margin-top: 10%;
+  padding-top: 10%;
   font-size: 120%;
 }
 .el-menu-vertical-demo{
