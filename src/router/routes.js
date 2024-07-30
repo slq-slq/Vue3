@@ -74,7 +74,7 @@ export const constantRoutes = [
                     },
                     {
                         path:'/operator',
-                        component:() => import('@/views/System/Operlog/operater.vue'),
+                        component:() => import('@/views/System/Operlog/operator.vue'),
                     }
                 ]
             }
@@ -116,7 +116,7 @@ export const constantRoutes = [
         children:[
             {
                 path:'/dataapi/apilog',
-                component:() => import('@/views/dataapi/apiLog/index.vue'),
+                component:() => import('@/views/dataapi/apilog/index.vue'),
                 name:'ApiLog',
                 meta:{
                     title:'API日志',
@@ -132,7 +132,7 @@ export const constantRoutes = [
             },
             {
                 path:'/dataapi/server',
-                component:() => import('@/views/dataapi/server/index.vue'),
+                component:() => import('@/views/dataapi/server/server.vue'),
                 name:'Server',
                 meta:{
                     title:'数据服务',
@@ -151,7 +151,7 @@ export const constantRoutes = [
         children:[
             {
                 path:'/integration/batching',
-                component:() => import('@/views/itegration/batching/index.vue'),
+                component:() => import('@/views/Integration/batching/index.vue'),
                 name:'batching',
                 meta:{
                     title:'任务批量管理',
@@ -159,7 +159,7 @@ export const constantRoutes = [
             },
             {
                 path:'/integration/creation',
-                component:() => import('@/views/integration/creation/index.vue'),
+                component:() => import('@/views/Integration/creation/index.vue'),
                 name:'creation',
                 meta:{
                     title:'任务构建',
@@ -167,7 +167,7 @@ export const constantRoutes = [
             },
             {
                 path:'/integration/executioning',
-                component:() => import('@/views/integration/executioning/index.vue'),
+                component:() => import('@/views/Integration/executionlog/index.vue'),
                 name:'executioning',
                 meta:{
                     title:'执行日志',
@@ -175,7 +175,7 @@ export const constantRoutes = [
             },
             {
                 path:'/integration/management',
-                component:() => import('@/views/integration/management/index.vue'),
+                component:() => import('@/views/Integration/management/index.vue'),
                 name:'management',
                 meta:{
                     title:'实例管理',
@@ -183,7 +183,7 @@ export const constantRoutes = [
             },
             {
                 path:'/integration/monitor',
-                component:() => import('@/views/integration/monitor/index.vue'),
+                component:() => import('@/views/Integration/monitor/index.vue'),
                 name:'inmonitor',
                 meta:{
                     title:'资源监控',
@@ -191,7 +191,7 @@ export const constantRoutes = [
             },
             {
                 path:'/integration/templete',
-                component:() => import('@/views/integration/templete/index.vue'),
+                component:() => import('@/views/Integration/templete/index.vue'),
                 name:'templete',
                 meta:{
                     title:'调度模板',
@@ -210,7 +210,7 @@ export const constantRoutes = [
         children:[
             {
                 path:'/dataassets/datasource',
-                component:() => import('@/views/dataassets/dataSource/index.vue'),
+                component:() => import('@/views/dataassets/datasource/index.vue'),
                 name:'datasource',
                 meta:{
                     title:'数据源',
