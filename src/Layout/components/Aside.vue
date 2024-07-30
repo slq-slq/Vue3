@@ -1,14 +1,17 @@
 <template>
-  <el-row class="tac">
-    <el-col :span="24">
+  <el-scrollbar>
       <el-menu
-        :default-active="defaultActive"
+       :collapse="isCollapse"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
         router
+        unique-opened
       >
-      <h5 class="mb-2"><el-icon><Menu /></el-icon>数据中台</h5>
+      <a href="/" class="logo">
+        <img src="../../assets/vue.svg">
+        <h1>数据中台</h1>
+      </a>
         <el-menu-item index="/">
           <el-icon><HomeFilled /></el-icon>
           <span>首页</span>
@@ -45,8 +48,7 @@
           </el-sub-menu>
         </el-sub-menu>
       </el-menu>
-    </el-col>
-  </el-row>
+  </el-scrollbar>
 </template>
 
 <script lang="ts">
@@ -137,7 +139,7 @@ export default defineComponent({
         ],
       },
     ])
-
+    const isCollapse=ref(false)
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
@@ -151,21 +153,42 @@ export default defineComponent({
       menus,
       handleOpen,
       handleClose,
+      isCollapse,
     }
   },
 })
 </script>
 
-<style>
-.mb-2 {
-  width: 200px;
-  text-align: center;
-  justify-content: center;
-  display: flex;
-  padding-top: 10%;
-  font-size: 120%;
-}
+<style lang="scss" scoped>
 .el-menu-vertical-demo{
+  width: 200px;
   height: 100vh;
+}
+.el-menu {
+  &.el-menu--collapse{
+    width: 60px;
+    & h1{
+      display: none;
+    }
+  }
+}
+.logo{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
+  color: black;
+  height: 40px;
+  text-align: center;
+  padding-top: 10%;
+  h1{
+    font-size:26px,
+    
+  }
+  img{
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>
