@@ -1,88 +1,66 @@
 <template>
     <div class="header">
-        <div class="p">
-            <p style="color: #bdc3d0;">
-                <el-icon size="25px">
-                    <Fold />
-                </el-icon>
-                <span>数据中控平台</span>
-            </p>
-            <div class="user">
-                <img style="height: 40px;width: 40px;border-radius:50%;" src="../../assets/images/login-background.jpg" alt="">
-                <span>{{ userStore }}</span>
-            </div>
-        </div>
-        <div class="bread">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-                <el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>
-                <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-                <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
+        <!-- 图标 -->
+        <el-icon size="25" @click="isCollapse = !isCollapse">
+            <Expand v-show="isCollapse" />
+            <Fold v-show="!isCollapse" />
+        </el-icon>
+        <!-- 面包屑 -->
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
+            <el-breadcrumb-item>
+              <a href="/">promotion management</a>
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>promotion list</el-breadcrumb-item>
+            <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+        </el-breadcrumb>
+        <!-- 下拉菜单 -->
+         <div class="a-dropdown-link" >
+            <a-dropdown>
+            <a class="ant-dropdown-link" @click.prevent style="display: flex; align-items: center;">
+              <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
+              {{ userName }}
+              <el-icon class="el-icon--right" size="15"><arrow-down /></el-icon>
+            </a>
+            <template #overlay>
+              <a-menu>
+                <a-menu-item key="0">
+                  <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+                    个人中心
+                  </a>
+                </a-menu-item>
+                <a-menu-divider />
+                <a-menu-item>退出登录</a-menu-item>
+              </a-menu>
+            </template>
+        </a-dropdown>
+         </div>
+        
     </div>
 </template>
-<script setup>
+<script setup lang="ts">
+// import { DownOutlined } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-// import { useUserStore } from '../../store/modules/user'
-// import { storeToRefs } from 'pinia'
-const userStore = ref('admin')
-// const userStore = useUserStore()
-// const { username } = storeToRefs(userStore) // 使用 storeToRefs 来解构 store 中的响应式数据
-// console.log(userStore);
+import { isCollapse } from './isCollapse'
+const userName = ref('admin')
+// const isCollapse = ref(false)
 </script>
 <style scoped>
-.header {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding-bottom: 5px;
-    background-color: #ffffff;
-    border-bottom: solid 1px #dcdfe6;
-}
-
-.p {
-    display: flex;
-    justify-content: space-between;
-    /* 两端对齐 */
-    align-items: center;
-    /* 垂直居中对齐 */
-    padding-left: 10px;
-}
-
-.p p {
+.header{
     display: flex;
     align-items: center;
-    color: #bdc3d0;
+    height: 50px;
+    background-color: #eee;
 }
-
-.p p .el-icon {
-    margin-right: 10px;
+.el-icon {
+    margin-right: 17px;
 }
-
-.bread {
-    margin-bottom: 5px;
-    padding-left: 10px;
-}
-
-.user {
+.a-dropdown-link {
+    border:none;
     display: flex;
     align-items: center;
-    /* 确保所有子元素垂直居中对齐 */
-    padding: 10px;
-
-    img {
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-        /* 添加一些间距 */
-    }
-
-    span {
-        /* 这里可以添加一些样式，例如字体大小 */
-    }
+    justify-content: center;
+    margin-left: auto;
 }
-
 
 </style>

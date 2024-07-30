@@ -25,5 +25,4 @@ import Main from './components/Main.vue';
     padding: 0;
     margin: 0;
 }
-
 </style>

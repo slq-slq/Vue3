@@ -65,7 +65,7 @@ import {
   Setting,
   SetUp,
 } from '@element-plus/icons-vue'
-
+import { isCollapse } from './isCollapse'
 export default defineComponent({
   setup() {
     const defaultActive = ref('2')
@@ -139,7 +139,7 @@ export default defineComponent({
         ],
       },
     ])
-    const isCollapse=ref(false)
+    // const isCollapse=ref(false)
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
@@ -163,6 +163,7 @@ export default defineComponent({
 .el-menu-vertical-demo{
   width: 200px;
   height: 100vh;
+  background-color: #eee;
 }
 .el-menu {
   &.el-menu--collapse{
@@ -179,7 +180,7 @@ export default defineComponent({
   align-content: center;
   text-decoration: none;
   color: black;
-  height: 40px;
+  height: 50px;
   text-align: center;
   padding-top: 10%;
   h1{
