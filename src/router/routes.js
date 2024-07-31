@@ -116,7 +116,7 @@ export const constantRoutes = [
         component:() => import('@/Layout/index.vue'),
         name:'dataapi',
         meta:{
-            title:'系统管理'
+            title:'数据API'
         },
         children:[
             {

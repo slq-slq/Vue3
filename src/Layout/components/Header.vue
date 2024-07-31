@@ -6,16 +6,20 @@
             <Fold v-show="!isCollapse" />
         </el-icon>
         <!-- 面包屑 -->
-        <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-            <el-breadcrumb-item>
-              <a href="/">promotion management</a>
-            </el-breadcrumb-item>
-            <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-            <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
-        </el-breadcrumb>
+        <div class="content-title-box">
+          <el-breadcrumb separator=">">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <template v-for="(item, index) in breadList">
+              <el-breadcrumb-item
+                v-if="item.name"
+                :key="index"
+                :to="item.path"
+              >{{ item.meta.title }}</el-breadcrumb-item>
+            </template>
+          </el-breadcrumb>
+        </div>
         <!-- 下拉菜单 -->
-         <div class="a-dropdown-link" >
+        <div class="a-dropdown-link" >
             <a-dropdown>
             <a class="ant-dropdown-link" @click.prevent style="display: flex; align-items: center;">
               <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
@@ -34,15 +38,31 @@
               </a-menu>
             </template>
         </a-dropdown>
-         </div>
-        
+        </div>   
     </div>
 </template>
 <script setup lang="ts">
-// import { DownOutlined } from '@ant-design/icons-vue';
-import { ref } from 'vue';
 import { isCollapse } from './isCollapse'
 const userName = ref('admin')
+import { ref, reactive, watch, onMounted } from 'vue';
+import { RouteLocationMatched } from 'vue-router';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const breadList: RouteLocationMatched[] = reactive([]);
+
+const getMatched = () => {
+  breadList.length = 0; // 清空数组
+  breadList.push(...route.matched); // 添加新的匹配项
+};
+
+onMounted(() => {
+  getMatched();
+});
+
+watch(() => route.path, (newPath, oldPath) => {
+  getMatched();
+});
 </script>
 <style scoped>
 .header{
