@@ -139,7 +139,6 @@ export default defineComponent({
         ],
       },
     ])
-    // const isCollapse=ref(false)
     const handleOpen = (key: string, keyPath: string[]) => {
       console.log(key, keyPath)
     }
@@ -163,7 +162,11 @@ export default defineComponent({
 .el-menu-vertical-demo{
   width: 200px;
   height: 100vh;
-  background-color: #eee;
+  background-color: #dedfe0;
+  border: 0;
+}
+el-menu-item{
+  background-color: #dedfe0;
 }
 .el-menu {
   &.el-menu--collapse{

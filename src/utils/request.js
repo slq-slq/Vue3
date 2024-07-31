@@ -2,7 +2,7 @@ import axios from "axios";
 import { ElMessage } from "element-plus";
 //创建axios实例
 let request = axios.create({
-    baseURL: 'http://49.123.21.101:8081',
+    baseURL: import.meta.env.VITE_API_URL,
     timeout: 5000
 })
 //请求拦截器

@@ -29,6 +29,12 @@ export const constantRoutes = [
         },
     },
     {
+         // 将匹配所有内容并将其放在 `route.params.pathMatch` 下
+        path: '/:ErrorPage(.*)*', 
+        name: 'NotFound',
+        component:() => import('@/views/ErrorPage.vue')
+    },
+    {
         path:'/system',
         component:() => import('@/Layout/index.vue'),
         name:'system',

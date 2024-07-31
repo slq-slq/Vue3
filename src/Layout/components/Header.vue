@@ -30,7 +30,7 @@
                   </a>
                 </a-menu-item>
                 <a-menu-divider />
-                <a-menu-item>退出登录</a-menu-item>
+                <a-menu-item><router-link to="/login">退出登录</router-link></a-menu-item>
               </a-menu>
             </template>
         </a-dropdown>
@@ -43,14 +43,13 @@
 import { ref } from 'vue';
 import { isCollapse } from './isCollapse'
 const userName = ref('admin')
-// const isCollapse = ref(false)
 </script>
 <style scoped>
 .header{
     display: flex;
     align-items: center;
     height: 50px;
-    background-color: #eee;
+    background-color:#e9e9eb;
 }
 .el-icon {
     margin-right: 17px;
