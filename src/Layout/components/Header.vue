@@ -6,18 +6,9 @@
             <Fold v-show="!isCollapse" />
         </el-icon>
         <!-- 面包屑 -->
-        <div class="content-title-box">
-          <el-breadcrumb separator=">">
-            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <template v-for="(item, index) in breadList">
-              <el-breadcrumb-item
-                v-if="item.name"
-                :key="index"
-                :to="item.path"
-              >{{ item.meta.title }}</el-breadcrumb-item>
-            </template>
-          </el-breadcrumb>
-        </div>
+        <breadcrumb id="breadcrumb-container" class="breadcrumb-container"/>
+        <!-- <top-nav id="topmenu-container" class="topmenu-container" v-if="topNav"/> -->
+
         <!-- 下拉菜单 -->
         <div class="a-dropdown-link" >
             <a-dropdown>
@@ -47,6 +38,8 @@ const userName = ref('admin')
 import { ref, reactive, watch, onMounted } from 'vue';
 import { RouteLocationMatched } from 'vue-router';
 import { useRoute } from 'vue-router';
+import Breadcrumb from '../../components/breadcrumb/index.vue'
+// import TopNav from '../../components/topnav/index.vue'
 
 const route = useRoute();
 const breadList: RouteLocationMatched[] = reactive([]);

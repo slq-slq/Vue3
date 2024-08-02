@@ -1,6 +1,7 @@
 <template>
   <el-scrollbar>
       <el-menu
+      default-active="/system/user"
        :collapse="isCollapse"
         class="el-menu-vertical-demo"
         @open="handleOpen"
@@ -12,10 +13,10 @@
         <img src="../../assets/vue.svg">
         <h1>数据中台</h1>
       </a>
-        <el-menu-item index="/">
+        <!-- <el-menu-item index="/">
           <el-icon><HomeFilled /></el-icon>
           <span>首页</span>
-        </el-menu-item>
+        </el-menu-item> -->
         <el-sub-menu
           v-for="menu in menus"
           :key="menu.index"

@@ -23,6 +23,7 @@ export const constantRoutes = [
         path: '/',
         component: () => import('@/Layout/index.vue'),
         name: 'index',
+        redirect: '/system/user',
         meta: {
             title: '首页',
             hidden: true,

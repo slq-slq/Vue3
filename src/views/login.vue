@@ -94,7 +94,7 @@ const handleLogin = () => {
             loading.value = false
             ElNotification({
                 type: 'error',
-                message: error.message
+                message: error
             })
         }
     })
