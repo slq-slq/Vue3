@@ -53,7 +53,7 @@
 <script lang="ts" setup>
 import { DeleteFilled, Download, Edit, Plus ,Upload} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
-import RoleTable from './components/roleTable.vue';
+import RoleTable from '../../../components/system/role/roleTable.vue';
 const formInline = reactive({
   user: '',
   region: '',

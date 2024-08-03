@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import { Plus ,Sort} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
-import MenuTable from './components/menuTable.vue';
+import  MenuTable from '../../../components/system/operlog/menuTable.vue';
 const formInline = reactive({
 user: '',
 region: '',

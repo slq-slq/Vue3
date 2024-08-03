@@ -71,7 +71,7 @@
   <script lang="ts" setup>
   import { DeleteFilled, Download, Edit, Plus ,Upload} from '@element-plus/icons-vue';
   import { reactive } from 'vue'
-  import Table from './components/opertable.vue';
+  import Table from '../../../components/system/operlog/logtable.vue';
   
   const formInline = reactive({
     user: '',
