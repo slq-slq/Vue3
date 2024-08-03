@@ -24,7 +24,7 @@
               <el-form-item label="用户状态">
                 <el-select
                   v-model="formInline.region"
-                  placeholder="Activity zone"
+                  placeholder="请选择"
                   clearable
                 >
                   <el-option label="正常" value="nomal" />
@@ -50,7 +50,6 @@
         <!-- 操作按钮 -->
           <el-button
           :icon="button.icon"
-            style="width: 80px;"
             v-for="button in buttons"
             :key="button.text"
             :type="button.type"
@@ -68,7 +67,7 @@
 <script lang="ts" setup>
 import { DeleteFilled, Download, Edit, Plus ,Upload} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
-import Table from './table.vue';
+import Table from './components/table.vue';
 
 const formInline = reactive({
   user: '',
@@ -102,6 +101,6 @@ const buttons = [
 }
 
 .demo-form-inline .el-select {
-  --el-select-width: 220px;
+  --el-select-width: 200px;
 }
 </style>
