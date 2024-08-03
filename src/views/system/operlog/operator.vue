@@ -26,6 +26,7 @@
                 <el-option label="清空数据" value="nomal" />
               </el-select>
             </el-form-item>
+            <br>
             <el-form-item label="用户状态">
               <el-select
                 v-model="formInline.region"

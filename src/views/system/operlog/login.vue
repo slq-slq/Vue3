@@ -19,6 +19,7 @@
                 <el-option label="失败" value="top" />
               </el-select>
             </el-form-item>
+            <br>
             <el-form-item label="登录时间">
               <el-date-picker
                 v-model="formInline.date"
@@ -73,7 +74,7 @@
     
   <style scoped>
   .right{
-    padding-left: 10px;
+    margin-left: 10px;
   }
   .demo-form-inline .el-input {
     --el-input-width: 220px;
