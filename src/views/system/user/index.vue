@@ -88,7 +88,7 @@ const buttons = [
 ] as const
 </script>
   
-<style>
+<style  scoped>
 .user{
   display: flex;
 }

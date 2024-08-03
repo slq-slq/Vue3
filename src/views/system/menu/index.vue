@@ -57,7 +57,7 @@ const buttons = [
 
 ] as const
 </script>
-<style>
+<style scoped>
 .right{
   margin-left: 10px;
 }
