@@ -124,8 +124,8 @@ export default defineComponent({
         icon: Box,
         items: [
           { index: '/integration/templete', title: '调度模板' },
-          { index: '/integration/batching', title: '任务批量构建' },
           { index: '/integration/creation', title: '任务构建' },
+          { index: '/integration/batching', title: '任务批量构建' },
           { index: '/integration/management', title: '实例管理' },
           { index: '/integration/executionlog', title: '执行日志' },
           { index: '/integration/monitor', title: '资源监控' },

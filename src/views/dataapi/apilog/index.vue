@@ -13,12 +13,14 @@
         </el-form>
         <!-- 表格 -->
         <apilogTable></apilogTable>
+        <Page></Page>
     </div>
 </template>
 
 <script setup lang="ts">
 import { Plus } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
+import Page from '../../../components/Pagination/Page.vue';
 import apilogTable from '../../../components/dataApi/apilog/apilogTable.vue';
 
 const form = reactive({

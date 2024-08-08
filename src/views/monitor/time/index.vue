@@ -38,12 +38,14 @@
         </el-button>
       <!-- 表格 -->
       <TimeTable style="margin-top: 10px;"></TimeTable>
+      <Page></Page>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { DeleteFilled, Download, Edit, Operation, Plus ,Upload} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
+import Page from '../../../components/Pagination/Page.vue';
 import TimeTable from '../../../components/monitor/timeTable.vue';
 const formInline = reactive({
 user: '',

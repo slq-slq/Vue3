@@ -24,12 +24,15 @@
         </el-button>
         <!-- 表格 -->
         <maskTable></maskTable>
+        <!-- 页面 -->
+        <Page></Page>
     </div>
 </template>
 
 <script setup lang="ts">
 import { Plus } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
+import Page from '../../../components/Pagination/Page.vue';
 import maskTable from '../../../components/dataApi/mask/maskTable.vue';
 
 const form = reactive({

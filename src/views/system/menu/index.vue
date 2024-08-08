@@ -35,12 +35,14 @@
         </el-button>
       <!-- 表格 -->
       <MenuTable style="margin-top: 10px;"></MenuTable>
+      <Page></Page>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { Plus ,Sort} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
+import Page from '../../../components/Pagination/Page.vue';
 import  MenuTable from '../../../components/system/operlog/menuTable.vue';
 const formInline = reactive({
 user: '',

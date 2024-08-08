@@ -47,12 +47,14 @@
           </el-button>
         <!-- 表格 -->
         <RoleTable style="margin-top: 10px;"></RoleTable>
+        <Page></Page>
       </div>
 </template>
   
 <script lang="ts" setup>
 import { DeleteFilled, Download, Edit, Plus ,Upload} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
+import Page from '../../../components/Pagination/Page.vue';
 import RoleTable from '../../../components/system/role/roleTable.vue';
 const formInline = reactive({
   user: '',

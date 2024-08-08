@@ -24,12 +24,15 @@
         </el-button>
         <!-- 表格 -->
         <sertable></sertable>
+        <!-- 分页 -->
+         <Page></Page>
     </div>
 </template>
 
 <script setup lang="ts">
 import { Plus } from '@element-plus/icons-vue';
 import { reactive } from 'vue';
+import Page from '../../../components/Pagination/Page.vue';
 import sertable from '../../../components/dataApi/server/sertable.vue';
 
 const form = reactive({

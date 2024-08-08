@@ -15,15 +15,6 @@
     </el-table>
 </template>
 
-<style scoped>
-.el-table .warning-row {
-  --el-table-tr-bg-color: var(--el-color-warning-light-9);
-}
-.el-table .success-row {
-  --el-table-tr-bg-color: var(--el-color-success-light-9);
-}
-</style>
-
 <script setup lang="ts">
 interface User {
     date: string
@@ -79,3 +70,13 @@ const tableData: User[] = [
     },
 ]
 </script>
+
+<style scoped>
+.el-table .warning-row {
+  --el-table-tr-bg-color: var(--el-color-warning-light-9);
+}
+.el-table .success-row {
+  --el-table-tr-bg-color: var(--el-color-success-light-9);
+}
+</style>
+

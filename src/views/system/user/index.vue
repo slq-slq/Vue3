@@ -60,6 +60,7 @@
           </el-button>
         <!-- 表格 -->
         <Table style="margin-top: 10px;"></Table>
+        <Page></Page>
       </div>
   </div>
 </template>
@@ -67,6 +68,7 @@
 <script lang="ts" setup>
 import { DeleteFilled, Download, Edit, Plus ,Upload} from '@element-plus/icons-vue';
 import { reactive } from 'vue'
+import Page from '../../../components/Pagination/Page.vue';
 import Table from '../../../components/system/user/table.vue';
 
 const formInline = reactive({
